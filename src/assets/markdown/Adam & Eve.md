@@ -1,5 +1,5 @@
 ---
-name: "Nicolas & Dorathy"
+name: "Adam & Eve"
 category: "Traditional Wedding"
 image: "https://res.cloudinary.com/nottherealalanturing/image/upload/q_67/v1625838421/static/wedding_7_pl9roh.webp"
 date: "12-12-2021"
