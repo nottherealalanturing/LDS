@@ -19,13 +19,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images/hero`,
-      },
-    },
-    {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
         resetCSS: true,
