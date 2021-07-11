@@ -11,6 +11,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: process.env.INSTAGRAM_USERNAME,
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+        instagram_id: process.env.INSTAGRAM_ID,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
