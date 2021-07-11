@@ -10,6 +10,7 @@ module.exports = {
     initials: "LS",
   },
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-instagram`,
       options: {
@@ -25,6 +26,7 @@ module.exports = {
         isUsingColorMode: true,
       },
     },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-cloudinary`,
       options: {
