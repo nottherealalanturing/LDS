@@ -28,7 +28,7 @@ const Stories = ({ data }) => {
         my={8}
         gap={8}
       >
-        {data.allMarkdownRemark.nodes.map((story, index) => {
+        {/* {data.allMarkdownRemark.nodes.map((story, index) => {
           return (
             <StoryPreview
               name={story.frontmatter.name}
@@ -40,7 +40,7 @@ const Stories = ({ data }) => {
               key={index}
             />
           )
-        })}
+        })} */}
       </Grid>
       <Text textAlign="center" mx={1} fontWeight={800} fontSize="0.9vw">
         {title} © {foundingDate}.
@@ -51,7 +51,7 @@ const Stories = ({ data }) => {
 
 export default Stories
 
-export const PageQuery = graphql`
+/* export const PageQuery = graphql`
   query {
     allMarkdownRemark {
       nodes {
@@ -67,3 +67,4 @@ export const PageQuery = graphql`
     }
   }
 `
+ */
