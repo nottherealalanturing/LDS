@@ -5,7 +5,7 @@ import { foundingDate, title } from "../../data/config"
 
 const SlideHero = () => {
   const data = useStaticQuery(graphql`
-    query slidehero {
+    query {
       allCloudinaryMedia(
         filter: { public_id: { regex: "assets/hero/" } }
         limit: 10

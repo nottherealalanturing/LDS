@@ -24,7 +24,7 @@ const Porfolio = () => {
 
 const ScrollPorfolio = () => {
   const data = useStaticQuery(graphql`
-    query scrollPortQuery {
+    query {
       allCloudinaryMedia(
         filter: { public_id: { regex: "assets/portindex/" } }
         sort: { fields: public_id }

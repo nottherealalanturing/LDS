@@ -6,7 +6,7 @@ import { foundingDate, title } from "../../data/config"
 
 const GridPortfolio = () => {
   const data = useStaticQuery(graphql`
-    query gridPortQuery {
+    query {
       allCloudinaryMedia(
         filter: { public_id: { regex: "assets/portindex/" } }
         sort: { fields: public_id }

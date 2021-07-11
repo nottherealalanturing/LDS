@@ -36,7 +36,7 @@ const useInterval = (callback, delay) => {
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
-    query assets {
+    query {
       allCloudinaryMedia(
         filter: { public_id: { regex: "assets/hero/" } }
         limit: 10
