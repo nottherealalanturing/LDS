@@ -1,0 +1,42 @@
+import { useBreakpoint } from "@chakra-ui/react"
+import { graphql } from "gatsby"
+import React from "react"
+import {
+  WeddingPorfolioLandscape,
+  WeddingPortfolioPortrait,
+} from "../../../components/wedding-porfolio-category"
+
+export default function WeddingPortFolio({ data, location }) {
+  const breakpoint = useBreakpoint()
+
+  return breakpoint === "sm" ||
+    breakpoint === "base" ||
+    breakpoint === "md" ||
+    breakpoint === "dn" ||
+    breakpoint === "lg" ? (
+    <WeddingPortfolioPortrait
+      content={data}
+      path={location.pathname}
+      category="OTHER KINDS"
+    />
+  ) : (
+    <WeddingPorfolioLandscape
+      content={data}
+      path={location.pathname}
+      category="OTHER KINDS"
+    />
+  )
+}
+
+export const pageQuery = graphql`
+  query {
+    allCloudinaryMedia(filter: { public_id: { regex: "assets/OKWPP/" } }) {
+      edges {
+        node {
+          secure_url
+          public_id
+        }
+      }
+    }
+  }
+`
