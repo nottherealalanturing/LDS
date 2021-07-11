@@ -1,0 +1,26 @@
+.active {
+  /* background-color: ;
+    color: white; */
+  border: 1px solid rgb(189, 188, 188);
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgba(51, 51, 51, 0);
+  /* margin-left: 5vw; */
+  margin-right: 5vw;
+  font-weight: 600;
+}
+
+.navbar > a {
+  float: left;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none !important;
+  border-radius: 10px;
+  /* border: none; */
+  margin: 10px;
+  color: rgb(184, 180, 180);
+  font-weight: 800;
+}

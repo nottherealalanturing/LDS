@@ -1,0 +1,230 @@
+/* $breakpoint-lg: 1200px; */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #27253d;
+}
+
+.drybn-collage__overlay {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  background: #326765;
+  border: 2px solid #edc988;
+  box-sizing: border-box;
+}
+
+.drybn-collage__content {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0.75rem;
+  background: #edc988;
+  border: 4px solid #7da87b;
+  box-sizing: border-box;
+}
+
+.drybn-collage-item {
+  background-color: #7da87b;
+  width: 100%;
+  height: 280px;
+  box-sizing: border-box;
+  grid-column: span 3;
+  position: relative;
+  transition: 0.5s;
+}
+
+.drybn-collage-item-heading {
+  background: #326765;
+  color: #edc988;
+}
+
+.drybn-collage-item h2 {
+  font-family: helvetica;
+  font-weight: 300;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.drybn-collage-item h2 span {
+  font-weight: 700;
+}
+
+.drybn-collage-item:nth-child(1),
+.drybn-collage-item:nth-child(2) {
+  grid-column: span 3;
+}
+
+.drybn-collage-item:nth-child(1) {
+  background: url(https://picsum.photos/id/680/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(0 0, 82% 0, 100% 95%, 0 100%);
+}
+
+.drybn-collage-item:nth-child(2) {
+  background: url(https://picsum.photos/id/528/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 90%);
+  width: 118%;
+  margin-left: -18%;
+  height: calc(100% + 1rem);
+}
+
+.drybn-collage-item:nth-child(3) {
+  background: url(https://picsum.photos/id/163/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-row: 3;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 90%);
+  margin-top: -2rem;
+}
+
+.drybn-collage-item:nth-child(4) {
+  grid-column: span 6;
+  clip-path: polygon(50% 0, 100% 10%, 100% 100%, 0 90%, 0 5%);
+  margin-top: -1rem;
+}
+
+.drybn-collage-item:nth-child(5) {
+  background: url(https://picsum.photos/id/817/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 90%);
+  margin-top: -1rem;
+}
+
+.drybn-collage-item:nth-child(6) {
+  background: url(https://picsum.photos/id/940/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: span 6;
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 66% 100%, 0 90%);
+  margin-top: -2.7rem;
+}
+
+.drybn-collage-item:nth-child(7) {
+  background: url(https://picsum.photos/id/628/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 10%, 77% 100%, 0 100%);
+  margin-top: -1.8rem;
+  width: 130%;
+}
+
+.drybn-collage-item:nth-child(8) {
+  background: url(https://picsum.photos/id/789/520);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  clip-path: polygon(31% 10%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -1.8rem;
+}
+/* **  MD BREAKPOINT */
+@media only screen and (min-width: 960px) {
+  .drybn-collage__overlay {
+    margin: 0.75rem auto;
+  }
+
+  .drybn-collage-item {
+    filter: sepia(1) blur(1px);
+    transition: 0.3s;
+  }
+
+  .drybn-collage-item:hover {
+    filter: sepia(0);
+  }
+
+  .drybn-collage-item {
+    grid-column: span 2;
+  }
+
+  .drybn-collage-item h2 {
+    opacity: 0;
+    line-height: 0;
+    transition: 0.3s;
+  }
+
+  .drybn-collage-item-heading:hover h2 {
+    opacity: 1;
+    line-height: 1;
+  }
+
+  .drybn-collage-item:nth-child(1),
+  .drybn-collage-item:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  .drybn-collage-item:nth-child(1) {
+    clip-path: polygon(0 0, 100% 0%, 100% 87%, 0% 100%);
+    background-position: center;
+  }
+
+  .drybn-collage-item:nth-child(2) {
+    clip-path: polygon(0 0, 100% 0%, 100% 74%, 0% 87%);
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .drybn-collage-item:nth-child(3) {
+    clip-path: polygon(0 8%, 100% 0, 100% 65%, 0 100%);
+    background-position: center;
+    margin-top: -1.5rem;
+    grid-row: 2;
+  }
+
+  .drybn-collage-item:nth-child(4) {
+    clip-path: polygon(0 8%, 93% 0, 100% 90%, 69% 100%, 0 88%);
+    grid-column: span 2;
+    margin-top: -3rem;
+    z-index: 999;
+  }
+
+  .drybn-collage-item:nth-child(5) {
+    clip-path: polygon(0 9%, 100% 0, 100% 65%, 7% 98%);
+    background-position: center;
+    width: (107%);
+    margin-top: -4.65rem;
+    margin-left: -7%;
+  }
+
+  .drybn-collage-item:nth-child(6) {
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 100%);
+    background-position: center;
+    margin-top: -6rem;
+    grid-column: span 2;
+  }
+
+  .drybn-collage-item:nth-child(7) {
+    clip-path: polygon(70% 26%, 100% 16%, 100% 100%, 0 100%, 0 14%);
+    background-position: center;
+    margin-top: -6rem;
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(8) {
+    clip-path: polygon(0 37%, 100% 11%, 100% 100%, 0 100%);
+    background-position: center;
+    margin-top: -12rem;
+    height: calc(100% + 12rem);
+  }
+
+  .drybn-collage-item:nth-child(4):hover {
+    transform: scale(1.5);
+  }
+}

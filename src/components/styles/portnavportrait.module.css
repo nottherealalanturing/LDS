@@ -1,0 +1,252 @@
+/* $breakpoint-lg: 1200px; */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #27253d;
+}
+
+.drybn-collage__overlay {
+  width: 100%;
+  max-width: 80vw;
+  height: max-content;
+  padding: 1rem;
+  background: #000;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+}
+
+.drybn-collage__content {
+  width: 70vw;
+  height: 100%;
+  padding: 1rem;
+  background: #1e1d1dc4;
+  border: 4px solid #fff;
+  box-sizing: border-box;
+}
+
+.drybn-collage-item {
+  background-color: #7da87b;
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  grid-column: span 3;
+  position: relative;
+  transition: 0.7s;
+}
+
+.drybn-collage-item-heading {
+  background: #000000;
+  color: #fff;
+}
+
+.drybn-collage-item h2 {
+  font-family: helvetica;
+  font-weight: 300;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.drybn-collage-item h2 span {
+  font-weight: 700;
+}
+
+.drybn-collage-item:nth-child(1),
+.drybn-collage-item:nth-child(2) {
+  grid-column: span 3;
+}
+
+.drybn-collage-item:nth-child(1) {
+  border-radius: 5px;
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625839965/assets/portindex/architecture.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.drybn-collage-item:nth-child(2) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625840263/assets/portindex/arts.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 118%;
+  margin-left: -18%;
+  height: calc(100% + 1rem);
+}
+
+.drybn-collage-item:nth-child(3) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625840296/assets/portindex/beauty.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-row: 3;
+
+  margin-top: -2rem;
+}
+
+.drybn-collage-item:nth-child(4) {
+  grid-column: span 6;
+
+  margin-top: -1rem;
+}
+
+.drybn-collage-item:nth-child(5) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625840287/assets/portindex/commercials.jpg  ");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-top: -1rem;
+}
+
+.drybn-collage-item:nth-child(6) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625840306/assets/portindex/fashion.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: span 6;
+
+  margin-top: -2.7rem;
+}
+
+.drybn-collage-item:nth-child(7) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625840296/assets/portindex/experimentation.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-top: -1.8rem;
+  width: 130%;
+}
+
+.drybn-collage-item:nth-child(8) {
+  background: url("https://res.cloudinary.com/nottherealalanturing/image/upload/q_auto,f_auto/v1625839970/assets/portindex/portraits.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-top: -1.8rem;
+}
+/* **  MD BREAKPOINT */
+@media only screen and (min-width: 960px) {
+  /* .drybn-collage__overlay {
+      margin: 0.75rem auto;
+    } */
+
+  .drybn-collage-item:hover {
+    /* filter: blur(0); */
+    transform: scale(1.5);
+    z-index: 1000;
+    transition: 0.3s;
+  }
+
+  .drybn-collage-item {
+    grid-column: span 2;
+  }
+
+  .drybn-collage-item h2 {
+    opacity: 0;
+    line-height: 0;
+    transition: 0.3s;
+  }
+
+  .drybn-collage-item-heading:hover h2 {
+    opacity: 1;
+    line-height: 1;
+  }
+
+  .drybn-collage-item:nth-child(1),
+  .drybn-collage-item:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  .drybn-collage-item:nth-child(1) {
+    /*     clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%); */
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .drybn-collage-item:nth-child(2) {
+    /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 80%); */
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .drybn-collage-item:nth-child(3) {
+    /* clip-path: polygon(0 8%, 100% 0, 100% 50%, 0 100%); */
+    background-position: center;
+    /* margin-top: -1em; */
+    margin-top: 0em;
+    grid-row: 2;
+    /* height: 160%; */
+    height: 100%;
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(4) {
+    /* clip-path: polygon(0% 10%, 100% 10%, 100% 90%, 50% 100%, 0% 90%); */
+    grid-column: span 2;
+    /* margin-top: -1em; */
+    margin-top: 0em;
+    z-index: 999;
+    /* height: 130%; */
+    height: 100%;
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(5) {
+    /* clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 50%); */
+    background-position: center;
+    /* margin-top: -1em; */
+    margin-top: 0em;
+    /* height: 160%; */
+    height: 100%;
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(6) {
+    /* clip-path: polygon(0 50%, 100% -30%, 100% 100%, 0% 100%); */
+    background-position: center;
+    margin-top: 0em;
+    grid-column: span 2;
+    height: 100%;
+    /* width: 10em; */
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(7) {
+    /* clip-path: polygon(50% 20%, 100% 10%, 100% 100%, 0 100%, 0 10%); */
+    background-position: center;
+    margin-top: 0em;
+    /* width: 10em; */
+    width: 100%;
+    height: 100%;
+  }
+
+  .drybn-collage-item:nth-child(8) {
+    /* clip-path: polygon(0 -30%, 100% 50%, 100% 100%, 0% 100%); */
+    background-position: center;
+    margin-top: 0em;
+    height: 100%;
+    /* width: 10em; */
+    width: 100%;
+  }
+
+  .drybn-collage-item:nth-child(4):hover {
+    transform: scale(1.5);
+  }
+}

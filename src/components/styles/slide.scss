@@ -1,0 +1,375 @@
+// *********** no carousel styles ***********
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+hr {
+  margin-top: 55px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+// ***********carousel styles***********
+// animation duration
+$animation-duration: 600ms;
+
+// keyframes
+// move slide from left to the viewport
+@keyframes animate-in-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// move slide out of the viewport to the left
+@keyframes animate-out-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+// move slide from right to the viewport
+@keyframes animate-in-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// move slide out of the viewport to the right
+@keyframes animate-out-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// classes to use the keyframs
+.enter-to-left {
+  animation: animate-in-to-left $animation-duration;
+}
+
+.exit-to-left {
+  animation: animate-out-to-left $animation-duration;
+
+  .carousel-caption {
+    opacity: 0;
+  }
+}
+
+.enter-to-right {
+  animation: animate-in-to-right $animation-duration;
+}
+
+.exit-to-right {
+  animation: animate-out-to-right $animation-duration;
+
+  .carousel-caption {
+    opacity: 0;
+  }
+}
+
+.carousel-slider-wrapper {
+  width: 100vw;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  .carousel-slide {
+    background-color: #fff;
+    margin: 0 auto;
+    display: none;
+    min-width: 100%;
+    text-align: center;
+
+    // the next class is required for the swipe effect
+    &.swipe {
+      user-select: none;
+      pointer-events: none;
+    }
+
+    &.active-slide {
+      display: block;
+      background-color: #f3f3f3;
+
+      &.next-active-slide {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      // styles for carousel image
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      // styles for carousel caption
+      .carousel-caption {
+        position: absolute;
+        right: 35px;
+        bottom: 20px;
+        left: 35px;
+        z-index: 10;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #fff;
+
+        .carousel-caption-title,
+        .carousel-caption-subtitle {
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+        .carousel-caption-title {
+          margin: 0 0 5px;
+        }
+
+        .carousel-caption-subtitle {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // styles of the next and prev buttons
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 65px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0);
+    filter: alpha(opacity=50);
+    z-index: 1;
+
+    .left-triangle {
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-left: 35px solid #fff;
+      border-bottom: 30px solid transparent;
+      position: absolute;
+      left: -1px;
+      cursor: initial;
+      transform: translateY(-50%);
+    }
+
+    .right-triangle {
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-right: 35px solid #fff;
+      border-bottom: 30px solid transparent;
+      position: absolute;
+      right: -1px;
+      cursor: initial;
+      transform: translateY(-50%);
+    }
+
+    &.carousel-left-arrow {
+      button {
+        position: absolute;
+        left: -1px;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.carousel-right-arrow {
+      right: 0;
+      left: auto;
+
+      button {
+        position: absolute;
+        right: -1px;
+        transform: translateY(-50%);
+      }
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 0;
+      height: 30px;
+
+      &.padding-left-15 {
+        padding-left: 15px;
+      }
+
+      &.padding-right-15 {
+        padding-right: 15px;
+      }
+
+      svg {
+        width: 15px;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      i {
+        opacity: 0.5;
+        cursor: pointer;
+        color: #000;
+        font-size: 28px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // styles of carousel indicators
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    z-index: 15;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    &.position-left {
+      left: 35px;
+    }
+
+    &.position-right {
+      right: 35px;
+    }
+
+    &.position-center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    li {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 1px;
+      text-indent: -999px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #fff;
+        // opacity: 0.7;
+      }
+
+      &.active {
+        width: 10px;
+        height: 10px;
+        margin: 0;
+        background-color: #fff;
+        cursor: initial;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-slider-wrapper {
+    .carousel-slide {
+      &.active-slide {
+        .carousel-caption {
+          padding-bottom: 30px;
+          left: 65px;
+          right: 65px;
+        }
+      }
+    }
+
+    .carousel-control {
+      .left-triangle {
+        border-top: 50px solid transparent;
+        border-left: 65px solid #fff;
+        border-bottom: 50px solid transparent;
+      }
+
+      .right-triangle {
+        border-top: 50px solid transparent;
+        border-right: 65px solid #fff;
+        border-bottom: 50px solid transparent;
+      }
+      button {
+        height: 50px;
+        svg {
+          width: 25px;
+        }
+        i {
+          font-size: 50px;
+        }
+      }
+    }
+
+    .carousel-indicators {
+      &.position-left {
+        left: 65px;
+      }
+
+      &.position-right {
+        right: 65px;
+      }
+
+      li {
+        width: 10px;
+        height: 10px;
+
+        &.active {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-slider-wrapper {
+    .carousel-slide {
+      &.exit-to-left,
+      &.exit-to-right {
+        .carousel-caption {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

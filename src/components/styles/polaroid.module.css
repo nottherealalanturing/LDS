@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.1),
+    0px 5px 10px rgba(0, 0, 0, 0.25);
+  float: left;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
+  animation-delay: 10s;
+  transition: all 1000ms ease-out;
+}
+
+.container > img {
+  height: auto;
+  position: relative;
+}
+
+/* .container:hover {
+  animation-delay: 10s;
+  transform: scale(1.2) !important;
+  z-index: 257 !important;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.1),
+    0px 0px 29px rgba(0, 0, 0, 0.2);
+} */

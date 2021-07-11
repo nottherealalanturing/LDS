@@ -1,55 +1,43 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
+import { Flex } from "@chakra-ui/layout"
+import { useBreakpoint } from "@chakra-ui/react"
 import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
-import "./layout.css"
+import SideBar from "./sidebar"
+import WeddingNav from "./wedding-navbar"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, location = "" }) => {
+  const path = (location.pathname + "").startsWith("/weddings")
+  const cntpath = (location.pathname + "").startsWith("/contact")
+  const brpt = useBreakpoint()
+  const weddingSidebar =
+    (brpt === "lg" || brpt === "xl" || brpt === "2xl") && (path || cntpath)
+      ? "none"
+      : "flex"
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+      <Flex w="100vw" bg="black">
+        {path ? <WeddingNav /> : <Header />}
+      </Flex>
+      <Flex>
+        <Flex pt="10vh" /* margin-top="10vh" */>
+          <Flex
+            display={{
+              base: "none",
+              sm: "none",
+
+              md: "none",
+              lg: weddingSidebar,
+            }}
+          >
+            {path ? null : <SideBar />}
+          </Flex>
+          <Flex w="98vw" as="main">
+            {children}
+          </Flex>
+        </Flex>
+      </Flex>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

@@ -1,11 +1,39 @@
+require("dotenv").config()
+
+const config = require("./data/config")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `LAVDECK STUDIO`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `@assadeesaa`,
+    initials: "LS",
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images/hero`,
+      },
+    },
+    {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        resetCSS: true,
+        isUsingColorMode: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_NAME,
+        apiKey: process.env.CLOUDINARY_KEY,
+        apiSecret: process.env.CLOUDINARY_SECRET,
+        resourceType: `image`,
+        maxResults: 200,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
