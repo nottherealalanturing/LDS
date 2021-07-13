@@ -11,6 +11,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    /*   {
+      resolve: `gatsby-source-drive`,
+      options: {
+        folderId: `hero`,
+        key: `AIzaSyAAd2cPgzK136x6hvkE0ZeiXxUN1hGXpi0`,
+        serviceAccountEmail: `lavdeck@lavdeck.iam.gserviceaccount.com`,
+      },
+    }, */
     {
       resolve: `gatsby-source-instagram`,
       options: {
@@ -27,6 +35,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    /*  {
+      resolve: "gatsby-transformer-cloudinary",
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+      },
+    }, */
     {
       resolve: `gatsby-source-cloudinary`,
       options: {
