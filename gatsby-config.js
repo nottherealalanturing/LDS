@@ -11,14 +11,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
-    /*   {
-      resolve: `gatsby-source-drive`,
-      options: {
-        folderId: `hero`,
-        key: `AIzaSyAAd2cPgzK136x6hvkE0ZeiXxUN1hGXpi0`,
-        serviceAccountEmail: `lavdeck@lavdeck.iam.gserviceaccount.com`,
-      },
-    }, */
     {
       resolve: `gatsby-source-instagram`,
       options: {
@@ -59,7 +51,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images/hero`,
       },
     },
     `gatsby-transformer-sharp`,

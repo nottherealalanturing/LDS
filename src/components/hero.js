@@ -14,8 +14,117 @@ import { config } from "react-spring"
 import { v4 as uuidv4 } from "uuid"
 import { foundingDate, title } from "../../data/config"
 import loadable from "@loadable/component"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Carousel = loadable(() => import("react-spring-3d-carousel"))
+
+const images = [
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-andrea-piacquadio-3768163.jpg"}
+        alt={"pexels-andrea-piacquadio-3768163"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-asa-dugger-1897590.jpg"}
+        alt={"pexels-asa-dugger-1897590"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-jamiesx-co-4242520.jpg"}
+        alt={"pexels-jamiesx-co-4242520"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-michael-dupuis-4015706.jpg"}
+        alt={"pexels-michael-dupuis-4015706"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-olya-prutskova-7121391.jpg"}
+        alt={"pexels-olya-prutskova-7121391"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-tainá-bernard-3482526.jpg"}
+        alt={"pexels-tainá-bernard-3482526"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+  {
+    key: uuidv4(),
+    content: (
+      <StaticImage
+        src={"../assets/images/hero/pexels-tima-miroshnichenko-5560202.jpg"}
+        alt={"pexels-tima-miroshnichenko-5560202"}
+        height={400}
+        width={300}
+        placeholder="blurred"
+        layout="constrained"
+        formats={["webp"]}
+        loading={"eager"}
+      />
+    ),
+  },
+]
 
 const useInterval = (callback, delay) => {
   const savedCallback = useRef()
@@ -35,22 +144,6 @@ const useInterval = (callback, delay) => {
 }
 
 const Hero = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allCloudinaryMedia(
-        filter: { public_id: { regex: "assets/hero/" } }
-        limit: 10
-      ) {
-        edges {
-          node {
-            secure_url
-            id
-          }
-        }
-      }
-    }
-  `)
-
   const [ref, setRef] = useState(0)
   const breakpointWidth = useBreakpointValue({
     base: "90vw",
@@ -58,9 +151,9 @@ const Hero = () => {
     md: "100%",
   })
 
-  const slides = data.allCloudinaryMedia.edges.map((slide, index) => {
+  const slides = images.map((slide, index) => {
     return {
-      key: uuidv4(),
+      key: slide.key,
       content: (
         <Flex
           alignItems="center"
@@ -72,13 +165,7 @@ const Hero = () => {
           mt={12}
           w={breakpointWidth}
         >
-          <img
-            src={slide.node.secure_url}
-            alt={slide.node.id}
-            height={"400px"}
-            width={"300px"}
-            loading="eager"
-          />
+          {slide.content}
         </Flex>
       ),
       onClick: () => setRef(index),
@@ -87,7 +174,7 @@ const Hero = () => {
   const breakpoint = useBreakpointValue({ base: 0, sm: 3, md: 3 })
 
   useInterval(() => {
-    ref < 10 ? setRef(ref + 1) : setRef(0)
+    ref < 8 ? setRef(ref + 1) : setRef(0)
   }, 9000)
 
   return (
@@ -108,6 +195,7 @@ const Hero = () => {
           onClick={() => {
             setRef(e => e - 1)
           }}
+          size="sm"
         >
           <Icon as={GrFormPrevious} />
         </Button>
@@ -119,6 +207,7 @@ const Hero = () => {
           onClick={() => {
             setRef(e => e + 1)
           }}
+          size="sm"
         >
           <Icon as={GrFormNext} />
         </Button>

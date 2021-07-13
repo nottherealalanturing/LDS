@@ -16,8 +16,31 @@ const About = ({ data }) => {
         md: "row",
         lg: "row",
       }}
+      justifyContent={{
+        base: "normal",
+        sm: "normal",
+        dn: "normal",
+        md: "center",
+        lg: "center",
+      }}
+      alignItems={{
+        base: "center",
+        sm: "center",
+        dn: "center",
+        md: "normal",
+        lg: "normal",
+      }}
+      width="100vw"
     >
-      <Box width="30%">
+      <Box
+        width={{
+          base: "50%",
+          sm: "50%",
+          dn: "50%",
+          md: "30%",
+          lg: "30%",
+        }}
+      >
         <StaticImage
           src="../assets/images/about/about.jpg"
           alt="photo of "
@@ -28,9 +51,17 @@ const About = ({ data }) => {
           formats={["auto", "webp"]}
         />
       </Box>
-      <Box width="50%">
-        <Container>
-          <Heading>About Us</Heading>
+      <Box
+        width={{
+          base: "70%",
+          sm: "70%",
+          dn: "70%",
+          md: "50%",
+          lg: "50%",
+        }}
+      >
+        <Container my={4} px={8}>
+          <Heading textAlign="center">About Us</Heading>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime atque
           similique velit qui corporis, iure sunt reiciendis possimus animi,
           minus nesciunt in aliquam nam nobis unde id architecto modi corrupti?
@@ -72,8 +103,15 @@ const About = ({ data }) => {
           reiciendis dolore iure sed hic id veritatis quod in fugit.
         </Container>
       </Box>
-      <Box width="20%">
-        {" "}
+      <Box
+        width={{
+          base: "100%",
+          sm: "100%",
+          dn: "20%",
+          md: "20%",
+          lg: "20%",
+        }}
+      >
         <InstaGallery data={data} />
       </Box>
     </Flex>

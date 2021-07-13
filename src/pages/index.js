@@ -7,7 +7,7 @@ import SlideHero from "../components/slide-hero"
 const IndexPage = () => {
   const breakpoint = useBreakpoint()
   return (
-    <Box w="100vw" h="80vh">
+    <Box w="95vw" h="80vh">
       {breakpoint === "sm" || breakpoint === "base" || breakpoint === "dn" ? (
         <SlideHero />
       ) : (
